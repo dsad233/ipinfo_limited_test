@@ -7,7 +7,12 @@ export class IptestController {
 
   // ipinfo 이용
   @Get()
-  findData(@Query('ip') ip: string) {
-    return this.iptestService.findData(ip);
+  async findURL(@Query('ip') ip: string) {
+    return await this.iptestService.findURL(ip);
+  }
+
+  @Get('/nodelibrary')
+  async findNodeIpinfo(@Query('ip') ip: string) {
+    return await this.iptestService.findNodeIpinfo(ip);
   }
 }
